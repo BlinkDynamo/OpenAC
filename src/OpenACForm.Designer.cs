@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OpenACForm));
             this.clickIntervalGB = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -166,6 +167,7 @@
             // 
             // comboBox2
             // 
+            this.comboBox2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(107, 55);
             this.comboBox2.Name = "comboBox2";
@@ -183,6 +185,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(107, 18);
             this.comboBox1.Name = "comboBox1";
@@ -301,12 +304,14 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Location = new System.Drawing.Point(203, 15);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(81, 32);
             this.button1.TabIndex = 8;
             this.button1.Text = "Pick location";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // radioButton2
             // 
@@ -331,39 +336,47 @@
             // 
             // startB
             // 
+            this.startB.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.startB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.startB.Location = new System.Drawing.Point(12, 225);
             this.startB.Name = "startB";
-            this.startB.Size = new System.Drawing.Size(212, 46);
+            this.startB.Size = new System.Drawing.Size(210, 45);
             this.startB.TabIndex = 4;
             this.startB.Text = "Start (F6)";
-            this.startB.UseVisualStyleBackColor = true;
+            this.startB.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(237, 225);
+            this.button2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Location = new System.Drawing.Point(238, 225);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(211, 46);
+            this.button2.Size = new System.Drawing.Size(210, 45);
             this.button2.TabIndex = 5;
             this.button2.Text = "Stop (F6)";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // hotkeySettingB
             // 
+            this.hotkeySettingB.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.hotkeySettingB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.hotkeySettingB.Location = new System.Drawing.Point(12, 277);
             this.hotkeySettingB.Name = "hotkeySettingB";
-            this.hotkeySettingB.Size = new System.Drawing.Size(212, 46);
+            this.hotkeySettingB.Size = new System.Drawing.Size(210, 45);
             this.hotkeySettingB.TabIndex = 6;
             this.hotkeySettingB.Text = "Hotkey setting";
-            this.hotkeySettingB.UseVisualStyleBackColor = true;
+            this.hotkeySettingB.UseVisualStyleBackColor = false;
             // 
             // helpB
             // 
-            this.helpB.Location = new System.Drawing.Point(237, 277);
+            this.helpB.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.helpB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.helpB.Location = new System.Drawing.Point(238, 277);
             this.helpB.Name = "helpB";
-            this.helpB.Size = new System.Drawing.Size(211, 46);
+            this.helpB.Size = new System.Drawing.Size(210, 45);
             this.helpB.TabIndex = 7;
             this.helpB.Text = "Help? >>";
-            this.helpB.UseVisualStyleBackColor = true;
+            this.helpB.UseVisualStyleBackColor = false;
             // 
             // OpenACForm
             // 
@@ -378,6 +391,7 @@
             this.Controls.Add(this.clickRepeatGB);
             this.Controls.Add(this.clickOptionsGB);
             this.Controls.Add(this.clickIntervalGB);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OpenACForm";
             this.Text = "OpenAC";
             this.clickIntervalGB.ResumeLayout(false);
