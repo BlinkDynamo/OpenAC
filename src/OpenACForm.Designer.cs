@@ -34,30 +34,30 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.clickIntervalMillisecondsTB = new System.Windows.Forms.TextBox();
+            this.clickIntervalSecondsTB = new System.Windows.Forms.TextBox();
+            this.clickIntervalMinutesTB = new System.Windows.Forms.TextBox();
+            this.clickIntervalHoursTB = new System.Windows.Forms.TextBox();
             this.clickOptionsGB = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.clickOptionsClickTypeCB = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.clickOptionsMouseButtonCB = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.clickRepeatGB = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.clickRepeatRepeatNTimesRB = new System.Windows.Forms.RadioButton();
+            this.clickRepeatRepeatUntilStoppedRB = new System.Windows.Forms.RadioButton();
             this.cursorPositionGB = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.yLocationTB = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.xLocationTB = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.cursorPositionCustomLocationRB = new System.Windows.Forms.RadioButton();
+            this.cursorPositionCurrentLocationRB = new System.Windows.Forms.RadioButton();
             this.startB = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.stopB = new System.Windows.Forms.Button();
             this.hotkeySettingB = new System.Windows.Forms.Button();
             this.helpB = new System.Windows.Forms.Button();
             this.clickIntervalGB.SuspendLayout();
@@ -73,10 +73,10 @@
             this.clickIntervalGB.Controls.Add(this.label3);
             this.clickIntervalGB.Controls.Add(this.label2);
             this.clickIntervalGB.Controls.Add(this.label1);
-            this.clickIntervalGB.Controls.Add(this.textBox4);
-            this.clickIntervalGB.Controls.Add(this.textBox3);
-            this.clickIntervalGB.Controls.Add(this.textBox2);
-            this.clickIntervalGB.Controls.Add(this.textBox1);
+            this.clickIntervalGB.Controls.Add(this.clickIntervalMillisecondsTB);
+            this.clickIntervalGB.Controls.Add(this.clickIntervalSecondsTB);
+            this.clickIntervalGB.Controls.Add(this.clickIntervalMinutesTB);
+            this.clickIntervalGB.Controls.Add(this.clickIntervalHoursTB);
             this.clickIntervalGB.Location = new System.Drawing.Point(12, 12);
             this.clickIntervalGB.Name = "clickIntervalGB";
             this.clickIntervalGB.Size = new System.Drawing.Size(436, 53);
@@ -120,43 +120,43 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "hours";
             // 
-            // textBox4
+            // clickIntervalMillisecondsTB
             // 
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox4.Location = new System.Drawing.Point(300, 19);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(56, 20);
-            this.textBox4.TabIndex = 11;
+            this.clickIntervalMillisecondsTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.clickIntervalMillisecondsTB.Location = new System.Drawing.Point(300, 19);
+            this.clickIntervalMillisecondsTB.Name = "clickIntervalMillisecondsTB";
+            this.clickIntervalMillisecondsTB.Size = new System.Drawing.Size(56, 20);
+            this.clickIntervalMillisecondsTB.TabIndex = 11;
             // 
-            // textBox3
+            // clickIntervalSecondsTB
             // 
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Location = new System.Drawing.Point(203, 19);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(56, 20);
-            this.textBox3.TabIndex = 10;
+            this.clickIntervalSecondsTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.clickIntervalSecondsTB.Location = new System.Drawing.Point(203, 19);
+            this.clickIntervalSecondsTB.Name = "clickIntervalSecondsTB";
+            this.clickIntervalSecondsTB.Size = new System.Drawing.Size(56, 20);
+            this.clickIntervalSecondsTB.TabIndex = 10;
             // 
-            // textBox2
+            // clickIntervalMinutesTB
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Location = new System.Drawing.Point(107, 19);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(56, 20);
-            this.textBox2.TabIndex = 9;
+            this.clickIntervalMinutesTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.clickIntervalMinutesTB.Location = new System.Drawing.Point(107, 19);
+            this.clickIntervalMinutesTB.Name = "clickIntervalMinutesTB";
+            this.clickIntervalMinutesTB.Size = new System.Drawing.Size(56, 20);
+            this.clickIntervalMinutesTB.TabIndex = 9;
             // 
-            // textBox1
+            // clickIntervalHoursTB
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(6, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(56, 20);
-            this.textBox1.TabIndex = 8;
+            this.clickIntervalHoursTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.clickIntervalHoursTB.Location = new System.Drawing.Point(6, 19);
+            this.clickIntervalHoursTB.Name = "clickIntervalHoursTB";
+            this.clickIntervalHoursTB.Size = new System.Drawing.Size(56, 20);
+            this.clickIntervalHoursTB.TabIndex = 8;
             // 
             // clickOptionsGB
             // 
-            this.clickOptionsGB.Controls.Add(this.comboBox2);
+            this.clickOptionsGB.Controls.Add(this.clickOptionsClickTypeCB);
             this.clickOptionsGB.Controls.Add(this.label6);
-            this.clickOptionsGB.Controls.Add(this.comboBox1);
+            this.clickOptionsGB.Controls.Add(this.clickOptionsMouseButtonCB);
             this.clickOptionsGB.Controls.Add(this.label5);
             this.clickOptionsGB.Location = new System.Drawing.Point(12, 71);
             this.clickOptionsGB.Name = "clickOptionsGB";
@@ -165,14 +165,17 @@
             this.clickOptionsGB.TabStop = false;
             this.clickOptionsGB.Text = "Click options";
             // 
-            // comboBox2
+            // clickOptionsClickTypeCB
             // 
-            this.comboBox2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(107, 55);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(79, 21);
-            this.comboBox2.TabIndex = 11;
+            this.clickOptionsClickTypeCB.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.clickOptionsClickTypeCB.FormattingEnabled = true;
+            this.clickOptionsClickTypeCB.Items.AddRange(new object[] {
+            "Single",
+            "Double"});
+            this.clickOptionsClickTypeCB.Location = new System.Drawing.Point(107, 55);
+            this.clickOptionsClickTypeCB.Name = "clickOptionsClickTypeCB";
+            this.clickOptionsClickTypeCB.Size = new System.Drawing.Size(79, 21);
+            this.clickOptionsClickTypeCB.TabIndex = 11;
             // 
             // label6
             // 
@@ -183,14 +186,17 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "Click type:";
             // 
-            // comboBox1
+            // clickOptionsMouseButtonCB
             // 
-            this.comboBox1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(107, 18);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(79, 21);
-            this.comboBox1.TabIndex = 9;
+            this.clickOptionsMouseButtonCB.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.clickOptionsMouseButtonCB.FormattingEnabled = true;
+            this.clickOptionsMouseButtonCB.Items.AddRange(new object[] {
+            "Right",
+            "Left"});
+            this.clickOptionsMouseButtonCB.Location = new System.Drawing.Point(107, 18);
+            this.clickOptionsMouseButtonCB.Name = "clickOptionsMouseButtonCB";
+            this.clickOptionsMouseButtonCB.Size = new System.Drawing.Size(79, 21);
+            this.clickOptionsMouseButtonCB.TabIndex = 9;
             // 
             // label5
             // 
@@ -205,8 +211,8 @@
             // 
             this.clickRepeatGB.Controls.Add(this.label9);
             this.clickRepeatGB.Controls.Add(this.numericUpDown1);
-            this.clickRepeatGB.Controls.Add(this.radioButton4);
-            this.clickRepeatGB.Controls.Add(this.radioButton3);
+            this.clickRepeatGB.Controls.Add(this.clickRepeatRepeatNTimesRB);
+            this.clickRepeatGB.Controls.Add(this.clickRepeatRepeatUntilStoppedRB);
             this.clickRepeatGB.Location = new System.Drawing.Point(223, 71);
             this.clickRepeatGB.Name = "clickRepeatGB";
             this.clickRepeatGB.Size = new System.Drawing.Size(225, 89);
@@ -230,37 +236,37 @@
             this.numericUpDown1.Size = new System.Drawing.Size(56, 20);
             this.numericUpDown1.TabIndex = 2;
             // 
-            // radioButton4
+            // clickRepeatRepeatNTimesRB
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(7, 22);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(60, 17);
-            this.radioButton4.TabIndex = 1;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Repeat";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.clickRepeatRepeatNTimesRB.AutoSize = true;
+            this.clickRepeatRepeatNTimesRB.Location = new System.Drawing.Point(7, 22);
+            this.clickRepeatRepeatNTimesRB.Name = "clickRepeatRepeatNTimesRB";
+            this.clickRepeatRepeatNTimesRB.Size = new System.Drawing.Size(60, 17);
+            this.clickRepeatRepeatNTimesRB.TabIndex = 1;
+            this.clickRepeatRepeatNTimesRB.TabStop = true;
+            this.clickRepeatRepeatNTimesRB.Text = "Repeat";
+            this.clickRepeatRepeatNTimesRB.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // clickRepeatRepeatUntilStoppedRB
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(6, 56);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(123, 17);
-            this.radioButton3.TabIndex = 0;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Repeat until stopped";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.clickRepeatRepeatUntilStoppedRB.AutoSize = true;
+            this.clickRepeatRepeatUntilStoppedRB.Location = new System.Drawing.Point(6, 56);
+            this.clickRepeatRepeatUntilStoppedRB.Name = "clickRepeatRepeatUntilStoppedRB";
+            this.clickRepeatRepeatUntilStoppedRB.Size = new System.Drawing.Size(123, 17);
+            this.clickRepeatRepeatUntilStoppedRB.TabIndex = 0;
+            this.clickRepeatRepeatUntilStoppedRB.TabStop = true;
+            this.clickRepeatRepeatUntilStoppedRB.Text = "Repeat until stopped";
+            this.clickRepeatRepeatUntilStoppedRB.UseVisualStyleBackColor = true;
             // 
             // cursorPositionGB
             // 
             this.cursorPositionGB.Controls.Add(this.label8);
-            this.cursorPositionGB.Controls.Add(this.textBox6);
+            this.cursorPositionGB.Controls.Add(this.yLocationTB);
             this.cursorPositionGB.Controls.Add(this.label7);
-            this.cursorPositionGB.Controls.Add(this.textBox5);
+            this.cursorPositionGB.Controls.Add(this.xLocationTB);
             this.cursorPositionGB.Controls.Add(this.button1);
-            this.cursorPositionGB.Controls.Add(this.radioButton2);
-            this.cursorPositionGB.Controls.Add(this.radioButton1);
+            this.cursorPositionGB.Controls.Add(this.cursorPositionCustomLocationRB);
+            this.cursorPositionGB.Controls.Add(this.cursorPositionCurrentLocationRB);
             this.cursorPositionGB.Location = new System.Drawing.Point(12, 166);
             this.cursorPositionGB.Name = "cursorPositionGB";
             this.cursorPositionGB.Size = new System.Drawing.Size(436, 53);
@@ -277,13 +283,13 @@
             this.label8.TabIndex = 18;
             this.label8.Text = "Y";
             // 
-            // textBox6
+            // yLocationTB
             // 
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox6.Location = new System.Drawing.Point(370, 21);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(42, 20);
-            this.textBox6.TabIndex = 17;
+            this.yLocationTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.yLocationTB.Location = new System.Drawing.Point(370, 21);
+            this.yLocationTB.Name = "yLocationTB";
+            this.yLocationTB.Size = new System.Drawing.Size(42, 20);
+            this.yLocationTB.TabIndex = 17;
             // 
             // label7
             // 
@@ -294,13 +300,13 @@
             this.label7.TabIndex = 16;
             this.label7.Text = "X";
             // 
-            // textBox5
+            // xLocationTB
             // 
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox5.Location = new System.Drawing.Point(304, 21);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(42, 20);
-            this.textBox5.TabIndex = 15;
+            this.xLocationTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.xLocationTB.Location = new System.Drawing.Point(304, 21);
+            this.xLocationTB.Name = "xLocationTB";
+            this.xLocationTB.Size = new System.Drawing.Size(42, 20);
+            this.xLocationTB.TabIndex = 15;
             // 
             // button1
             // 
@@ -313,26 +319,26 @@
             this.button1.Text = "Pick location";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // radioButton2
+            // cursorPositionCustomLocationRB
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(183, 25);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(14, 13);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.cursorPositionCustomLocationRB.AutoSize = true;
+            this.cursorPositionCustomLocationRB.Location = new System.Drawing.Point(183, 25);
+            this.cursorPositionCustomLocationRB.Name = "cursorPositionCustomLocationRB";
+            this.cursorPositionCustomLocationRB.Size = new System.Drawing.Size(14, 13);
+            this.cursorPositionCustomLocationRB.TabIndex = 1;
+            this.cursorPositionCustomLocationRB.TabStop = true;
+            this.cursorPositionCustomLocationRB.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // cursorPositionCurrentLocationRB
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 23);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(99, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Current location";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.cursorPositionCurrentLocationRB.AutoSize = true;
+            this.cursorPositionCurrentLocationRB.Location = new System.Drawing.Point(6, 23);
+            this.cursorPositionCurrentLocationRB.Name = "cursorPositionCurrentLocationRB";
+            this.cursorPositionCurrentLocationRB.Size = new System.Drawing.Size(99, 17);
+            this.cursorPositionCurrentLocationRB.TabIndex = 0;
+            this.cursorPositionCurrentLocationRB.TabStop = true;
+            this.cursorPositionCurrentLocationRB.Text = "Current location";
+            this.cursorPositionCurrentLocationRB.UseVisualStyleBackColor = true;
             // 
             // startB
             // 
@@ -345,16 +351,16 @@
             this.startB.Text = "Start (F6)";
             this.startB.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // stopB
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Location = new System.Drawing.Point(238, 225);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(210, 45);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Stop (F6)";
-            this.button2.UseVisualStyleBackColor = false;
+            this.stopB.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.stopB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.stopB.Location = new System.Drawing.Point(238, 225);
+            this.stopB.Name = "stopB";
+            this.stopB.Size = new System.Drawing.Size(210, 45);
+            this.stopB.TabIndex = 5;
+            this.stopB.Text = "Stop (F6)";
+            this.stopB.UseVisualStyleBackColor = false;
             // 
             // hotkeySettingB
             // 
@@ -385,7 +391,7 @@
             this.ClientSize = new System.Drawing.Size(460, 334);
             this.Controls.Add(this.helpB);
             this.Controls.Add(this.hotkeySettingB);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.stopB);
             this.Controls.Add(this.startB);
             this.Controls.Add(this.cursorPositionGB);
             this.Controls.Add(this.clickRepeatGB);
@@ -414,30 +420,30 @@
         private System.Windows.Forms.GroupBox clickRepeatGB;
         private System.Windows.Forms.GroupBox cursorPositionGB;
         private System.Windows.Forms.Button startB;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button stopB;
         private System.Windows.Forms.Button hotkeySettingB;
         private System.Windows.Forms.Button helpB;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox clickIntervalMillisecondsTB;
+        private System.Windows.Forms.TextBox clickIntervalSecondsTB;
+        private System.Windows.Forms.TextBox clickIntervalMinutesTB;
+        private System.Windows.Forms.TextBox clickIntervalHoursTB;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.RadioButton cursorPositionCustomLocationRB;
+        private System.Windows.Forms.RadioButton cursorPositionCurrentLocationRB;
+        private System.Windows.Forms.RadioButton clickRepeatRepeatUntilStoppedRB;
+        private System.Windows.Forms.ComboBox clickOptionsMouseButtonCB;
+        private System.Windows.Forms.ComboBox clickOptionsClickTypeCB;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton clickRepeatRepeatNTimesRB;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox yLocationTB;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox xLocationTB;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
