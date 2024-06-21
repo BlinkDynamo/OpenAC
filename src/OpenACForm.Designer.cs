@@ -45,7 +45,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.clickRepeatGB = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.clickRepeatRepeatNTimesNUD = new System.Windows.Forms.NumericUpDown();
             this.clickRepeatRepeatNTimesRB = new System.Windows.Forms.RadioButton();
             this.clickRepeatRepeatUntilStoppedRB = new System.Windows.Forms.RadioButton();
             this.cursorPositionGB = new System.Windows.Forms.GroupBox();
@@ -63,7 +63,7 @@
             this.clickIntervalGB.SuspendLayout();
             this.clickOptionsGB.SuspendLayout();
             this.clickRepeatGB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clickRepeatRepeatNTimesNUD)).BeginInit();
             this.cursorPositionGB.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -191,8 +191,8 @@
             this.clickOptionsMouseButtonCB.BackColor = System.Drawing.SystemColors.ControlLight;
             this.clickOptionsMouseButtonCB.FormattingEnabled = true;
             this.clickOptionsMouseButtonCB.Items.AddRange(new object[] {
-            "Right",
-            "Left"});
+            "Left ",
+            "Right"});
             this.clickOptionsMouseButtonCB.Location = new System.Drawing.Point(107, 18);
             this.clickOptionsMouseButtonCB.Name = "clickOptionsMouseButtonCB";
             this.clickOptionsMouseButtonCB.Size = new System.Drawing.Size(79, 21);
@@ -210,7 +210,7 @@
             // clickRepeatGB
             // 
             this.clickRepeatGB.Controls.Add(this.label9);
-            this.clickRepeatGB.Controls.Add(this.numericUpDown1);
+            this.clickRepeatGB.Controls.Add(this.clickRepeatRepeatNTimesNUD);
             this.clickRepeatGB.Controls.Add(this.clickRepeatRepeatNTimesRB);
             this.clickRepeatGB.Controls.Add(this.clickRepeatRepeatUntilStoppedRB);
             this.clickRepeatGB.Location = new System.Drawing.Point(223, 71);
@@ -229,12 +229,12 @@
             this.label9.TabIndex = 3;
             this.label9.Text = "times";
             // 
-            // numericUpDown1
+            // clickRepeatRepeatNTimesNUD
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(97, 19);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(56, 20);
-            this.numericUpDown1.TabIndex = 2;
+            this.clickRepeatRepeatNTimesNUD.Location = new System.Drawing.Point(97, 19);
+            this.clickRepeatRepeatNTimesNUD.Name = "clickRepeatRepeatNTimesNUD";
+            this.clickRepeatRepeatNTimesNUD.Size = new System.Drawing.Size(56, 20);
+            this.clickRepeatRepeatNTimesNUD.TabIndex = 2;
             // 
             // clickRepeatRepeatNTimesRB
             // 
@@ -362,6 +362,7 @@
             this.stopB.TabIndex = 5;
             this.stopB.Text = "Stop (F6)";
             this.stopB.UseVisualStyleBackColor = false;
+            this.stopB.Click += new System.EventHandler(this.stopB_Click);
             // 
             // hotkeySettingB
             // 
@@ -407,7 +408,7 @@
             this.clickOptionsGB.PerformLayout();
             this.clickRepeatGB.ResumeLayout(false);
             this.clickRepeatGB.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clickRepeatRepeatNTimesNUD)).EndInit();
             this.cursorPositionGB.ResumeLayout(false);
             this.cursorPositionGB.PerformLayout();
             this.ResumeLayout(false);
@@ -446,7 +447,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox xLocationTB;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown clickRepeatRepeatNTimesNUD;
     }
 }
 
