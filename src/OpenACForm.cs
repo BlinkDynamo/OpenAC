@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -65,5 +66,19 @@ namespace OpenAC
             stopB.Enabled = false;
         }
 
+        void DoAutoClicker()
+        {
+            /* anytime DoAutoClicker is called, it will fetch the data from the form */
+
+            ACData ac_data = new ACData();
+
+        }
+
+        /* Event Handlers */
+
+        private void startB_Click(object sender, EventArgs e)
+        {
+            DoAutoClicker();
+        }
     }   /* END OF CLASS OpenACForm */
 }

@@ -350,6 +350,7 @@
             this.startB.TabIndex = 4;
             this.startB.Text = "Start (F6)";
             this.startB.UseVisualStyleBackColor = false;
+            this.startB.Click += new System.EventHandler(this.startB_Click);
             // 
             // stopB
             // 
