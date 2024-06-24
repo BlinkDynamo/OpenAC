@@ -16,15 +16,29 @@ namespace OpenAC
 {
     public partial class OpenACForm : Form
     {
-        /* IMPORTS */
+        /* DLL IMPORTS */
         [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
         public static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint cButtons, uint dwExtraInfo);
 
+        [DllImport("user32.dll")]
+        public static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vlc);
+
+        [DllImport("user32.dll")]
+        public static extern bool UnregisterHotKey(IntPtr hWnd, int id);
+
         /* MOUSE ACTIONS */
-        private const int MOUSEEVENTF_LEFTDOWN = 0x02;
-        private const int MOUSEEVENTF_LEFTUP = 0x04;
+        private const int MOUSEEVENTF_LEFTDOWN  = 0x02;
+        private const int MOUSEEVENTF_LEFTUP    = 0x04;
         private const int MOUSEEVENTF_RIGHTDOWN = 0x08;
-        private const int MOUSEEVENTF_RIGHTUP = 0x10;
+        private const int MOUSEEVENTF_RIGHTUP   = 0x10;
+        private const int MOUSEEVENTF_MOVE      = 0x0001;
+
+        /* HOTKEYS */
+        private const int START_HOTKEY_ID       = 00001;
+        private const int STOP_HOTKEY_ID        = 00002;
+
+        /* CONSTANTS */
+        private const int DOUBLE_CLICK_DELAY    = 50;
 
         /* RUNTIME VARIABLES */
         int delay;  /* in milliseconds */
@@ -36,15 +50,14 @@ namespace OpenAC
         string click_type;
         bool is_running;
 
-        /* CONSTANTS */
-        private const int DOUBLE_CLICK_DELAY = 50;
-
         /* CONSTRUCTOR */
         public OpenACForm()
         {
             InitializeComponent();
 
             SetDefaultControls();
+
+            RegisterHotKeys();
         }
 
         /* ---------- METHOD DECLARATIONS ---------- */
@@ -56,7 +69,7 @@ namespace OpenAC
             clickIntervalHoursTB.Text = "0";
             clickIntervalMinutesTB.Text = "0";
             clickIntervalSecondsTB.Text = "0";
-            clickIntervalMillisecondsTB.Text = "500";
+            clickIntervalMillisecondsTB.Text = "3000";
 
             /* Click Options */
             clickOptionsMouseButtonCB.SelectedIndex = 0;
@@ -75,14 +88,17 @@ namespace OpenAC
             stopB.Enabled = false;
         }
 
-        void DoAutoClicker()
-        /* DoAutoClicker is the main function that handles the active state of the AutoClicker */
+        void RegisterHotKeys()
         {
-            getData();  
+            /* Registers the hotkeys for the Start and Stop buttons */
+            RegisterHotKey(this.Handle, START_HOTKEY_ID, 0, (int)Keys.F6);
+            RegisterHotKey(this.Handle, STOP_HOTKEY_ID, 0, (int)Keys.F7);
+        }
 
+        void DoAutoClicker()    /* DoAutoClicker is the main function that handles the active state of the AutoClicker. It is a threaded process. */
+        {
             while (is_running)  
             {
-                
                 DoMouseClick(x, y);
 
                 System.Threading.Thread.Sleep(delay);
@@ -92,21 +108,21 @@ namespace OpenAC
                 {
                     n_repeats--;
                 }
+
                 else if (repeat_until_stopped)
                 {
                     continue;
                 }
+
                 else
                 {
-                    is_running = false;
+                    stopB_Click(null, null);
                 }
             }
         }
 
-        void getData()
+        void getData()          /* Reads in data from all controls and stores them in variables for use during threaded runtime. Should only be called on START. */
         {
-            /* Reads in data from all controls and stores them in variables */
-
             /* Sums all clickInterval values to get the delay in milliseconds */
             delay = Convert.ToInt32(clickIntervalHoursTB.Text) * 3600000 +
                     Convert.ToInt32(clickIntervalMinutesTB.Text) * 60000 +
@@ -123,18 +139,6 @@ namespace OpenAC
             {
                 n_repeats = 0;
                 repeat_until_stopped = true;
-            }
-
-            /* Set x and y from cursorPosition Radio Buttons */
-            if (cursorPositionCurrentLocationRB.Checked)
-            {
-                x = Cursor.Position.X;
-                y = Cursor.Position.Y;
-            }
-            else
-            {
-                x = Convert.ToInt32(xLocationTB.Text);
-                y = Convert.ToInt32(yLocationTB.Text);
             }
 
             /* Set mouse button from clickOptions Combo Box */
@@ -158,32 +162,35 @@ namespace OpenAC
             }
         }
 
-        void DoMouseClick(int x, int y)
+        void DoMouseClick(int location_x, int location_y)
         {
+            mouse_event(MOUSEEVENTF_MOVE, (uint)location_x, (uint)location_y, 0, 0);    /* Move to the location */
+
+            /* Perform the click depending on the mouse button and click type */
             if (mouse_button == "left")
             {
                 if (click_type == "single")
                 {
-                    mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, (uint)x, (uint)y, 0, 0);
+                    mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
                 }
                 else
                 {
-                    mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, (uint)x, (uint)y, 0, 0);
+                    mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
                     System.Threading.Thread.Sleep(DOUBLE_CLICK_DELAY);
-                    mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, (uint)x, (uint)y, 0, 0);
+                    mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
                 }
             }
             else
             {
                 if (click_type == "single")
                 {
-                    mouse_event(MOUSEEVENTF_RIGHTDOWN | MOUSEEVENTF_RIGHTUP, (uint)x, (uint)y, 0, 0);
+                    mouse_event(MOUSEEVENTF_RIGHTDOWN | MOUSEEVENTF_RIGHTUP, 0, 0, 0, 0);
                 }
                 else
                 {
-                    mouse_event(MOUSEEVENTF_RIGHTDOWN | MOUSEEVENTF_RIGHTUP, (uint)x, (uint)y, 0, 0);
+                    mouse_event(MOUSEEVENTF_RIGHTDOWN | MOUSEEVENTF_RIGHTUP, 0, 0, 0, 0);
                     System.Threading.Thread.Sleep(DOUBLE_CLICK_DELAY);
-                    mouse_event(MOUSEEVENTF_RIGHTDOWN | MOUSEEVENTF_RIGHTUP, (uint)x, (uint)y, 0, 0);
+                    mouse_event(MOUSEEVENTF_RIGHTDOWN | MOUSEEVENTF_RIGHTUP, 0, 0, 0, 0);
                 }
             }
         }       
@@ -196,8 +203,11 @@ namespace OpenAC
             startB.Enabled = false;
             stopB.Enabled = true;
 
-            /* Start the AutoClicker */
-            DoAutoClicker();
+            getData();
+
+
+            /* Start the AutoClicker asyncronously */
+            Task.Run(() => DoAutoClicker());
         }
 
         private void stopB_Click(object sender, EventArgs e)
@@ -207,5 +217,74 @@ namespace OpenAC
             startB.Enabled = true;
             stopB.Enabled = false;       
         }
+        private void cursorPositionCurrentLocationRB_CheckedChanged(object sender, EventArgs e)
+        {
+            xLocationTB.Enabled = cursorPositionCustomLocationRB.Checked;
+            yLocationTB.Enabled = cursorPositionCustomLocationRB.Checked;
+        }
+
+        private void cursorPositionCustomLocationRB_CheckedChanged(object sender, EventArgs e)
+        {
+            xLocationTB.Enabled = cursorPositionCustomLocationRB.Checked;
+            yLocationTB.Enabled = cursorPositionCustomLocationRB.Checked;
+        }
+
+        private void clickRepeatRepeatNTimesRB_CheckedChanged(object sender, EventArgs e)
+        {
+            clickRepeatRepeatNTimesNUD.Enabled = clickRepeatRepeatNTimesRB.Checked;
+        }
+
+        private void clickRepeatRepeatUntilStoppedRB_CheckedChanged(object sender, EventArgs e)
+        {
+            clickRepeatRepeatNTimesNUD.Enabled = clickRepeatRepeatNTimesRB.Checked;
+        }
+
+        private void pickLocationB_Click(object sender, EventArgs e)
+        {
+            /* Give a countdown before taking the location */
+            Task.Run(() =>
+            {
+                for (int i = 3; i > 0; i--)
+                {
+                    this.Invoke(new Action(() =>
+                    {
+                        pickLocationB.Text = i.ToString();
+                    }));
+                    System.Threading.Thread.Sleep(1000);
+                }
+
+                this.Invoke(new Action(() =>
+                {
+                    pickLocationB.Text = "Pick Location";
+                    xLocationTB.Text = Cursor.Position.X.ToString();
+                    yLocationTB.Text = Cursor.Position.Y.ToString();
+                }));
+            });
+        }
+
+        /* ---------- HotKey Listener ---------- */
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == 0x0312) 
+            {
+                if (m.WParam.ToInt32() == START_HOTKEY_ID) startB_Click(null, null);
+                else if (m.WParam.ToInt32() == STOP_HOTKEY_ID) stopB_Click(null, null);
+            }
+            base.WndProc(ref m);
+        }
+
+        /* ---------- Form Load ---------- */
+        private void FOrm_Load(object sender, EventArgs e)
+        {
+            Application.DoEvents();
+        }
+
+        /* ---------- Form Closing ---------- */
+        private void OpenACForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            UnregisterHotKey(this.Handle, START_HOTKEY_ID);
+            UnregisterHotKey(this.Handle, STOP_HOTKEY_ID);
+        }
+
     }   /* END OF CLASS OpenACForm */
 }

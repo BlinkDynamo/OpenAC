@@ -53,7 +53,7 @@
             this.yLocationTB = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.xLocationTB = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.pickLocationB = new System.Windows.Forms.Button();
             this.cursorPositionCustomLocationRB = new System.Windows.Forms.RadioButton();
             this.cursorPositionCurrentLocationRB = new System.Windows.Forms.RadioButton();
             this.startB = new System.Windows.Forms.Button();
@@ -246,6 +246,7 @@
             this.clickRepeatRepeatNTimesRB.TabStop = true;
             this.clickRepeatRepeatNTimesRB.Text = "Repeat";
             this.clickRepeatRepeatNTimesRB.UseVisualStyleBackColor = true;
+            this.clickRepeatRepeatNTimesRB.CheckedChanged += new System.EventHandler(this.clickRepeatRepeatNTimesRB_CheckedChanged);
             // 
             // clickRepeatRepeatUntilStoppedRB
             // 
@@ -257,6 +258,7 @@
             this.clickRepeatRepeatUntilStoppedRB.TabStop = true;
             this.clickRepeatRepeatUntilStoppedRB.Text = "Repeat until stopped";
             this.clickRepeatRepeatUntilStoppedRB.UseVisualStyleBackColor = true;
+            this.clickRepeatRepeatUntilStoppedRB.CheckedChanged += new System.EventHandler(this.clickRepeatRepeatUntilStoppedRB_CheckedChanged);
             // 
             // cursorPositionGB
             // 
@@ -264,7 +266,7 @@
             this.cursorPositionGB.Controls.Add(this.yLocationTB);
             this.cursorPositionGB.Controls.Add(this.label7);
             this.cursorPositionGB.Controls.Add(this.xLocationTB);
-            this.cursorPositionGB.Controls.Add(this.button1);
+            this.cursorPositionGB.Controls.Add(this.pickLocationB);
             this.cursorPositionGB.Controls.Add(this.cursorPositionCustomLocationRB);
             this.cursorPositionGB.Controls.Add(this.cursorPositionCurrentLocationRB);
             this.cursorPositionGB.Location = new System.Drawing.Point(12, 166);
@@ -308,26 +310,28 @@
             this.xLocationTB.Size = new System.Drawing.Size(42, 20);
             this.xLocationTB.TabIndex = 15;
             // 
-            // button1
+            // pickLocationB
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(203, 15);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 32);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Pick location";
-            this.button1.UseVisualStyleBackColor = false;
+            this.pickLocationB.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pickLocationB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.pickLocationB.Location = new System.Drawing.Point(192, 15);
+            this.pickLocationB.Name = "pickLocationB";
+            this.pickLocationB.Size = new System.Drawing.Size(92, 32);
+            this.pickLocationB.TabIndex = 8;
+            this.pickLocationB.Text = "Pick location";
+            this.pickLocationB.UseVisualStyleBackColor = false;
+            this.pickLocationB.Click += new System.EventHandler(this.pickLocationB_Click);
             // 
             // cursorPositionCustomLocationRB
             // 
             this.cursorPositionCustomLocationRB.AutoSize = true;
-            this.cursorPositionCustomLocationRB.Location = new System.Drawing.Point(183, 25);
+            this.cursorPositionCustomLocationRB.Location = new System.Drawing.Point(172, 25);
             this.cursorPositionCustomLocationRB.Name = "cursorPositionCustomLocationRB";
             this.cursorPositionCustomLocationRB.Size = new System.Drawing.Size(14, 13);
             this.cursorPositionCustomLocationRB.TabIndex = 1;
             this.cursorPositionCustomLocationRB.TabStop = true;
             this.cursorPositionCustomLocationRB.UseVisualStyleBackColor = true;
+            this.cursorPositionCustomLocationRB.CheckedChanged += new System.EventHandler(this.cursorPositionCustomLocationRB_CheckedChanged);
             // 
             // cursorPositionCurrentLocationRB
             // 
@@ -339,6 +343,7 @@
             this.cursorPositionCurrentLocationRB.TabStop = true;
             this.cursorPositionCurrentLocationRB.Text = "Current location";
             this.cursorPositionCurrentLocationRB.UseVisualStyleBackColor = true;
+            this.cursorPositionCurrentLocationRB.CheckedChanged += new System.EventHandler(this.cursorPositionCurrentLocationRB_CheckedChanged);
             // 
             // startB
             // 
@@ -360,7 +365,7 @@
             this.stopB.Name = "stopB";
             this.stopB.Size = new System.Drawing.Size(210, 45);
             this.stopB.TabIndex = 5;
-            this.stopB.Text = "Stop (F6)";
+            this.stopB.Text = "Stop (F7)";
             this.stopB.UseVisualStyleBackColor = false;
             this.stopB.Click += new System.EventHandler(this.stopB_Click);
             // 
@@ -424,7 +429,6 @@
         private System.Windows.Forms.Button startB;
         private System.Windows.Forms.Button stopB;
         private System.Windows.Forms.Button hotkeySettingB;
-        private System.Windows.Forms.Button helpB;
         private System.Windows.Forms.TextBox clickIntervalMillisecondsTB;
         private System.Windows.Forms.TextBox clickIntervalSecondsTB;
         private System.Windows.Forms.TextBox clickIntervalMinutesTB;
@@ -434,7 +438,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button pickLocationB;
         private System.Windows.Forms.RadioButton cursorPositionCustomLocationRB;
         private System.Windows.Forms.RadioButton cursorPositionCurrentLocationRB;
         private System.Windows.Forms.RadioButton clickRepeatRepeatUntilStoppedRB;
@@ -448,6 +452,7 @@
         private System.Windows.Forms.TextBox xLocationTB;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown clickRepeatRepeatNTimesNUD;
+        private System.Windows.Forms.Button helpB;
     }
 }
 
