@@ -1,10 +1,11 @@
+![image](img/OpenACShowcase.png)
 
-## OpenAC - Autoclicker
+## OpenAC AutoClicker v1.0
 
-OpenAC is an open source recoding of the [OP Auto Clicker](https://www.opautoclicker.com/index.html). 
-Under the "Features" section they claim that their software is "Virus Free". This is a bit of a funny claim for a
-project that is in an open source section of SourceForge, yet only provides executables in their repo. I am in no way casting 
-malicious intent on the developers-- it's just a silly thing to say as a developer is all.
+OpenAC is an open source improvement of the [OP Auto Clicker](https://www.opautoclicker.com/index.html). Under the 
+"Features" section they claim that their software is "Virus Free". This is a bit of a funny claim for a project that is 
+in an open source section of SourceForge, yet only provides executables in their repo. I am in no way casting malicious 
+intent on the developers-- it's just a silly thing to say as a developer is all.
 
 ## About/Features
 As this is a recoding of the original project, much of the features are the same. I am aiming for this project's 
@@ -43,8 +44,9 @@ executable is available in the releases page.
 
 ## Contributing
 
-The purpose of this project is simply to be an open source clone of the original project. As such,
-I am not looking to add any features or make any changes. 
+The purpose of this project is simply to be an open source second option of the original project. As such,
+I am not looking to add any features or make any changes more than I've already made. If you have structural
+changes or bug fixes however (or find some redundancies you would like to remove), feel free to make a pull request.
 
 
 ## License

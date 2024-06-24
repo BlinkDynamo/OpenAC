@@ -169,7 +169,7 @@
             // 
             // clickOptionsClickTypeCB
             // 
-            this.clickOptionsClickTypeCB.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.clickOptionsClickTypeCB.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.clickOptionsClickTypeCB.FormattingEnabled = true;
             this.clickOptionsClickTypeCB.Items.AddRange(new object[] {
             "Single",
@@ -190,7 +190,7 @@
             // 
             // clickOptionsMouseButtonCB
             // 
-            this.clickOptionsMouseButtonCB.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.clickOptionsMouseButtonCB.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.clickOptionsMouseButtonCB.FormattingEnabled = true;
             this.clickOptionsMouseButtonCB.Items.AddRange(new object[] {
             "Left ",
