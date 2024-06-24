@@ -58,13 +58,15 @@
             this.cursorPositionCurrentLocationRB = new System.Windows.Forms.RadioButton();
             this.startB = new System.Windows.Forms.Button();
             this.stopB = new System.Windows.Forms.Button();
-            this.hotkeySettingB = new System.Windows.Forms.Button();
-            this.helpB = new System.Windows.Forms.Button();
+            this.statusGB = new System.Windows.Forms.GroupBox();
+            this.statusTB = new System.Windows.Forms.TextBox();
+            this.titleAndVersionL = new System.Windows.Forms.Label();
             this.clickIntervalGB.SuspendLayout();
             this.clickOptionsGB.SuspendLayout();
             this.clickRepeatGB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clickRepeatRepeatNTimesNUD)).BeginInit();
             this.cursorPositionGB.SuspendLayout();
+            this.statusGB.SuspendLayout();
             this.SuspendLayout();
             // 
             // clickIntervalGB
@@ -77,7 +79,7 @@
             this.clickIntervalGB.Controls.Add(this.clickIntervalSecondsTB);
             this.clickIntervalGB.Controls.Add(this.clickIntervalMinutesTB);
             this.clickIntervalGB.Controls.Add(this.clickIntervalHoursTB);
-            this.clickIntervalGB.Location = new System.Drawing.Point(12, 12);
+            this.clickIntervalGB.Location = new System.Drawing.Point(12, 65);
             this.clickIntervalGB.Name = "clickIntervalGB";
             this.clickIntervalGB.Size = new System.Drawing.Size(436, 53);
             this.clickIntervalGB.TabIndex = 0;
@@ -158,7 +160,7 @@
             this.clickOptionsGB.Controls.Add(this.label6);
             this.clickOptionsGB.Controls.Add(this.clickOptionsMouseButtonCB);
             this.clickOptionsGB.Controls.Add(this.label5);
-            this.clickOptionsGB.Location = new System.Drawing.Point(12, 71);
+            this.clickOptionsGB.Location = new System.Drawing.Point(12, 124);
             this.clickOptionsGB.Name = "clickOptionsGB";
             this.clickOptionsGB.Size = new System.Drawing.Size(197, 89);
             this.clickOptionsGB.TabIndex = 1;
@@ -213,7 +215,7 @@
             this.clickRepeatGB.Controls.Add(this.clickRepeatRepeatNTimesNUD);
             this.clickRepeatGB.Controls.Add(this.clickRepeatRepeatNTimesRB);
             this.clickRepeatGB.Controls.Add(this.clickRepeatRepeatUntilStoppedRB);
-            this.clickRepeatGB.Location = new System.Drawing.Point(223, 71);
+            this.clickRepeatGB.Location = new System.Drawing.Point(223, 124);
             this.clickRepeatGB.Name = "clickRepeatGB";
             this.clickRepeatGB.Size = new System.Drawing.Size(225, 89);
             this.clickRepeatGB.TabIndex = 2;
@@ -269,7 +271,7 @@
             this.cursorPositionGB.Controls.Add(this.pickLocationB);
             this.cursorPositionGB.Controls.Add(this.cursorPositionCustomLocationRB);
             this.cursorPositionGB.Controls.Add(this.cursorPositionCurrentLocationRB);
-            this.cursorPositionGB.Location = new System.Drawing.Point(12, 166);
+            this.cursorPositionGB.Location = new System.Drawing.Point(12, 219);
             this.cursorPositionGB.Name = "cursorPositionGB";
             this.cursorPositionGB.Size = new System.Drawing.Size(436, 53);
             this.cursorPositionGB.TabIndex = 3;
@@ -314,7 +316,7 @@
             // 
             this.pickLocationB.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pickLocationB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.pickLocationB.Location = new System.Drawing.Point(192, 15);
+            this.pickLocationB.Location = new System.Drawing.Point(192, 13);
             this.pickLocationB.Name = "pickLocationB";
             this.pickLocationB.Size = new System.Drawing.Size(92, 32);
             this.pickLocationB.TabIndex = 8;
@@ -349,9 +351,9 @@
             // 
             this.startB.BackColor = System.Drawing.SystemColors.ControlLight;
             this.startB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.startB.Location = new System.Drawing.Point(12, 225);
+            this.startB.Location = new System.Drawing.Point(12, 282);
             this.startB.Name = "startB";
-            this.startB.Size = new System.Drawing.Size(210, 45);
+            this.startB.Size = new System.Drawing.Size(210, 40);
             this.startB.TabIndex = 4;
             this.startB.Text = "Start (F6)";
             this.startB.UseVisualStyleBackColor = false;
@@ -361,43 +363,51 @@
             // 
             this.stopB.BackColor = System.Drawing.SystemColors.ControlLight;
             this.stopB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.stopB.Location = new System.Drawing.Point(238, 225);
+            this.stopB.Location = new System.Drawing.Point(238, 282);
             this.stopB.Name = "stopB";
-            this.stopB.Size = new System.Drawing.Size(210, 45);
+            this.stopB.Size = new System.Drawing.Size(210, 40);
             this.stopB.TabIndex = 5;
             this.stopB.Text = "Stop (F7)";
             this.stopB.UseVisualStyleBackColor = false;
             this.stopB.Click += new System.EventHandler(this.stopB_Click);
             // 
-            // hotkeySettingB
+            // statusGB
             // 
-            this.hotkeySettingB.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.hotkeySettingB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.hotkeySettingB.Location = new System.Drawing.Point(12, 277);
-            this.hotkeySettingB.Name = "hotkeySettingB";
-            this.hotkeySettingB.Size = new System.Drawing.Size(210, 45);
-            this.hotkeySettingB.TabIndex = 6;
-            this.hotkeySettingB.Text = "Hotkey setting";
-            this.hotkeySettingB.UseVisualStyleBackColor = false;
+            this.statusGB.Controls.Add(this.statusTB);
+            this.statusGB.Location = new System.Drawing.Point(12, 9);
+            this.statusGB.Name = "statusGB";
+            this.statusGB.Size = new System.Drawing.Size(197, 50);
+            this.statusGB.TabIndex = 7;
+            this.statusGB.TabStop = false;
+            this.statusGB.Text = "Status";
             // 
-            // helpB
+            // statusTB
             // 
-            this.helpB.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.helpB.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.helpB.Location = new System.Drawing.Point(238, 277);
-            this.helpB.Name = "helpB";
-            this.helpB.Size = new System.Drawing.Size(210, 45);
-            this.helpB.TabIndex = 7;
-            this.helpB.Text = "Help? >>";
-            this.helpB.UseVisualStyleBackColor = false;
+            this.statusTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.statusTB.Location = new System.Drawing.Point(6, 19);
+            this.statusTB.Name = "statusTB";
+            this.statusTB.ReadOnly = true;
+            this.statusTB.Size = new System.Drawing.Size(180, 20);
+            this.statusTB.TabIndex = 0;
+            this.statusTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // titleAndVersionL
+            // 
+            this.titleAndVersionL.AutoSize = true;
+            this.titleAndVersionL.Font = new System.Drawing.Font("Minecraft", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleAndVersionL.Location = new System.Drawing.Point(225, 25);
+            this.titleAndVersionL.Name = "titleAndVersionL";
+            this.titleAndVersionL.Size = new System.Drawing.Size(223, 23);
+            this.titleAndVersionL.TabIndex = 8;
+            this.titleAndVersionL.Text = "OpenAC AutoClicker 1.0";
             // 
             // OpenACForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(460, 334);
-            this.Controls.Add(this.helpB);
-            this.Controls.Add(this.hotkeySettingB);
+            this.Controls.Add(this.titleAndVersionL);
+            this.Controls.Add(this.statusGB);
             this.Controls.Add(this.stopB);
             this.Controls.Add(this.startB);
             this.Controls.Add(this.cursorPositionGB);
@@ -416,7 +426,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.clickRepeatRepeatNTimesNUD)).EndInit();
             this.cursorPositionGB.ResumeLayout(false);
             this.cursorPositionGB.PerformLayout();
+            this.statusGB.ResumeLayout(false);
+            this.statusGB.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -428,7 +441,6 @@
         private System.Windows.Forms.GroupBox cursorPositionGB;
         private System.Windows.Forms.Button startB;
         private System.Windows.Forms.Button stopB;
-        private System.Windows.Forms.Button hotkeySettingB;
         private System.Windows.Forms.TextBox clickIntervalMillisecondsTB;
         private System.Windows.Forms.TextBox clickIntervalSecondsTB;
         private System.Windows.Forms.TextBox clickIntervalMinutesTB;
@@ -452,7 +464,9 @@
         private System.Windows.Forms.TextBox xLocationTB;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown clickRepeatRepeatNTimesNUD;
-        private System.Windows.Forms.Button helpB;
+        private System.Windows.Forms.GroupBox statusGB;
+        private System.Windows.Forms.TextBox statusTB;
+        private System.Windows.Forms.Label titleAndVersionL;
     }
 }
 

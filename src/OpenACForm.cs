@@ -39,6 +39,7 @@ namespace OpenAC
 
         /* CONSTANTS */
         private const int DOUBLE_CLICK_DELAY    = 50;
+        private const double VERSION_NUMBER     = 1.0;
 
         /* RUNTIME VARIABLES */
         int delay;  /* in milliseconds */
@@ -54,10 +55,10 @@ namespace OpenAC
         public OpenACForm()
         {
             InitializeComponent();
-
             SetDefaultControls();
-
             RegisterHotKeys();
+
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
         /* ---------- METHOD DECLARATIONS ---------- */
@@ -86,6 +87,14 @@ namespace OpenAC
             /* Program State */
             startB.Enabled = true;
             stopB.Enabled = false;
+
+            /* Status Textbox */
+            statusTB.Enter += (sender, e) => this.ActiveControl = null;
+            statusTB.Text = "Standby";
+            statusTB.BackColor = Color.LightGray;
+
+            /* Title and Version Label */
+            titleAndVersionL.Text = "Open AutoClicker v" + VERSION_NUMBER.ToString("0.0");
         }
 
         void RegisterHotKeys()
@@ -205,9 +214,12 @@ namespace OpenAC
 
             getData();
 
-
-            /* Start the AutoClicker asyncronously */
+            /* Start the AutoClicker thread */
             Task.Run(() => DoAutoClicker());
+
+            /* Update status to show that AutoClicker is running */
+            statusTB.Text = "Running";
+            statusTB.BackColor = Color.Green;
         }
 
         private void stopB_Click(object sender, EventArgs e)
@@ -215,18 +227,25 @@ namespace OpenAC
             /* Stop the AutoClicker */
             is_running = false;
             startB.Enabled = true;
-            stopB.Enabled = false;       
+            stopB.Enabled = false;
+
+            /* Update status to show that AutoClicker is inactive */
+            statusTB.Text = "Standby";
+            statusTB.BackColor = Color.LightGray;
         }
+
         private void cursorPositionCurrentLocationRB_CheckedChanged(object sender, EventArgs e)
         {
             xLocationTB.Enabled = cursorPositionCustomLocationRB.Checked;
             yLocationTB.Enabled = cursorPositionCustomLocationRB.Checked;
+            pickLocationB.Enabled = cursorPositionCustomLocationRB.Checked;
         }
 
         private void cursorPositionCustomLocationRB_CheckedChanged(object sender, EventArgs e)
         {
             xLocationTB.Enabled = cursorPositionCustomLocationRB.Checked;
             yLocationTB.Enabled = cursorPositionCustomLocationRB.Checked;
+            pickLocationB.Enabled = cursorPositionCustomLocationRB.Checked;
         }
 
         private void clickRepeatRepeatNTimesRB_CheckedChanged(object sender, EventArgs e)
