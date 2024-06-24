@@ -10,13 +10,14 @@ intent on the developers-- it's just a silly thing to say as a developer is all.
 ## About/Features
 As this is a recoding of the original project, much of the features are the same. I am aiming for this project's 
 end result to be 90% similar to OP Auto Clicker, minus a few features I found redundant. The software is completely 
-written in C#, using the SendKeys class for the mouse input.
+written in C#, using user32.dll calls to simulate mouse clicks.
 
 ## Build and Install
 I was torn if I should also include an executable option for this project, but I decided it couldn't hurt. The 
 purpose of this project in the first place was to provide an open source version of the original and allow you
-to build an executable yourself, however, more options almost always outweighs less. Because of this, a premade
-executable is available in the releases page.
+to build an executable yourself, however, more options almost always outweighs less. Because of this, an
+executable is available in the releases page. I still highly encourage you to build it yourself, as it's both a 
+fulfilling thing to do as a software user and the main focus of the project.
 
 
 ### Building from Source
