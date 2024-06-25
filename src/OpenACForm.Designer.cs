@@ -394,10 +394,11 @@
             // titleAndVersionL
             // 
             this.titleAndVersionL.AutoSize = true;
-            this.titleAndVersionL.Font = new System.Drawing.Font("Minecraft", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleAndVersionL.BackColor = System.Drawing.SystemColors.Control;
+            this.titleAndVersionL.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleAndVersionL.Location = new System.Drawing.Point(225, 25);
             this.titleAndVersionL.Name = "titleAndVersionL";
-            this.titleAndVersionL.Size = new System.Drawing.Size(223, 23);
+            this.titleAndVersionL.Size = new System.Drawing.Size(215, 24);
             this.titleAndVersionL.TabIndex = 8;
             this.titleAndVersionL.Text = "OpenAC AutoClicker 1.0";
             // 
