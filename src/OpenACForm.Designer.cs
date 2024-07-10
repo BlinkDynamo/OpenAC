@@ -31,13 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OpenACForm));
             this.clickIntervalGB = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.clickIntervalMillisecondsTB = new System.Windows.Forms.TextBox();
-            this.clickIntervalSecondsTB = new System.Windows.Forms.TextBox();
-            this.clickIntervalMinutesTB = new System.Windows.Forms.TextBox();
-            this.clickIntervalHoursTB = new System.Windows.Forms.TextBox();
             this.clickOptionsGB = new System.Windows.Forms.GroupBox();
             this.clickOptionsClickTypeCB = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -61,6 +55,12 @@
             this.statusGB = new System.Windows.Forms.GroupBox();
             this.statusTB = new System.Windows.Forms.TextBox();
             this.titleAndVersionL = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.clickIntervalSecondsTB = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.clickIntervalMinutesTB = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.clickIntervalHoursTB = new System.Windows.Forms.TextBox();
             this.clickIntervalGB.SuspendLayout();
             this.clickOptionsGB.SuspendLayout();
             this.clickRepeatGB.SuspendLayout();
@@ -95,33 +95,6 @@
             this.label4.TabIndex = 14;
             this.label4.Text = "milliseconds";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(265, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 13);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "secs";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(169, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(28, 13);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "mins";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(68, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "hours";
-            // 
             // clickIntervalMillisecondsTB
             // 
             this.clickIntervalMillisecondsTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -129,30 +102,6 @@
             this.clickIntervalMillisecondsTB.Name = "clickIntervalMillisecondsTB";
             this.clickIntervalMillisecondsTB.Size = new System.Drawing.Size(56, 20);
             this.clickIntervalMillisecondsTB.TabIndex = 11;
-            // 
-            // clickIntervalSecondsTB
-            // 
-            this.clickIntervalSecondsTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.clickIntervalSecondsTB.Location = new System.Drawing.Point(203, 19);
-            this.clickIntervalSecondsTB.Name = "clickIntervalSecondsTB";
-            this.clickIntervalSecondsTB.Size = new System.Drawing.Size(56, 20);
-            this.clickIntervalSecondsTB.TabIndex = 10;
-            // 
-            // clickIntervalMinutesTB
-            // 
-            this.clickIntervalMinutesTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.clickIntervalMinutesTB.Location = new System.Drawing.Point(107, 19);
-            this.clickIntervalMinutesTB.Name = "clickIntervalMinutesTB";
-            this.clickIntervalMinutesTB.Size = new System.Drawing.Size(56, 20);
-            this.clickIntervalMinutesTB.TabIndex = 9;
-            // 
-            // clickIntervalHoursTB
-            // 
-            this.clickIntervalHoursTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.clickIntervalHoursTB.Location = new System.Drawing.Point(6, 19);
-            this.clickIntervalHoursTB.Name = "clickIntervalHoursTB";
-            this.clickIntervalHoursTB.Size = new System.Drawing.Size(56, 20);
-            this.clickIntervalHoursTB.TabIndex = 8;
             // 
             // clickOptionsGB
             // 
@@ -402,6 +351,57 @@
             this.titleAndVersionL.TabIndex = 8;
             this.titleAndVersionL.Text = "OpenAC AutoClicker 1.0";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(265, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(29, 13);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "secs";
+            // 
+            // clickIntervalSecondsTB
+            // 
+            this.clickIntervalSecondsTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.clickIntervalSecondsTB.Location = new System.Drawing.Point(203, 19);
+            this.clickIntervalSecondsTB.Name = "clickIntervalSecondsTB";
+            this.clickIntervalSecondsTB.Size = new System.Drawing.Size(56, 20);
+            this.clickIntervalSecondsTB.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(169, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(28, 13);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "mins";
+            // 
+            // clickIntervalMinutesTB
+            // 
+            this.clickIntervalMinutesTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.clickIntervalMinutesTB.Location = new System.Drawing.Point(107, 19);
+            this.clickIntervalMinutesTB.Name = "clickIntervalMinutesTB";
+            this.clickIntervalMinutesTB.Size = new System.Drawing.Size(56, 20);
+            this.clickIntervalMinutesTB.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(68, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(33, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "hours";
+            // 
+            // clickIntervalHoursTB
+            // 
+            this.clickIntervalHoursTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.clickIntervalHoursTB.Location = new System.Drawing.Point(6, 19);
+            this.clickIntervalHoursTB.Name = "clickIntervalHoursTB";
+            this.clickIntervalHoursTB.Size = new System.Drawing.Size(56, 20);
+            this.clickIntervalHoursTB.TabIndex = 8;
+            // 
             // OpenACForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -443,13 +443,7 @@
         private System.Windows.Forms.Button startB;
         private System.Windows.Forms.Button stopB;
         private System.Windows.Forms.TextBox clickIntervalMillisecondsTB;
-        private System.Windows.Forms.TextBox clickIntervalSecondsTB;
-        private System.Windows.Forms.TextBox clickIntervalMinutesTB;
-        private System.Windows.Forms.TextBox clickIntervalHoursTB;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button pickLocationB;
         private System.Windows.Forms.RadioButton cursorPositionCustomLocationRB;
@@ -468,6 +462,12 @@
         private System.Windows.Forms.GroupBox statusGB;
         private System.Windows.Forms.TextBox statusTB;
         private System.Windows.Forms.Label titleAndVersionL;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox clickIntervalSecondsTB;
+        private System.Windows.Forms.TextBox clickIntervalMinutesTB;
+        private System.Windows.Forms.TextBox clickIntervalHoursTB;
     }
 }
 

@@ -169,11 +169,22 @@ namespace OpenAC
             {
                 click_type = "double";
             }
+            /* Get the x and y location of the cursor */
+            if (cursorPositionCurrentLocationRB.Checked)
+            {
+                x = Cursor.Position.X;
+                y = Cursor.Position.Y;
+            }
+            else
+            {
+                x = Convert.ToInt32(xLocationTB.Text);
+                y = Convert.ToInt32(yLocationTB.Text);
+            }
         }
 
         void DoMouseClick(int location_x, int location_y)
         {
-            mouse_event(MOUSEEVENTF_MOVE, (uint)location_x, (uint)location_y, 0, 0);    /* Move to the location */
+            Cursor.Position = new System.Drawing.Point(location_x, location_y);    /* Move to the location */
 
             /* Perform the click depending on the mouse button and click type */
             if (mouse_button == "left")
