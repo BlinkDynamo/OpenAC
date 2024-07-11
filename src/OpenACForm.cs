@@ -39,7 +39,7 @@ namespace OpenAC
 
         /* CONSTANTS */
         private const int DOUBLE_CLICK_DELAY    = 50;
-        private const double VERSION_NUMBER     = 1.0;
+        private const string VERSION_NUMBER     = "1.0.0";
 
         /* RUNTIME VARIABLES */
         int delay;  /* in milliseconds */
@@ -94,7 +94,7 @@ namespace OpenAC
             statusTB.BackColor = Color.LightGray;
 
             /* Title and Version Label */
-            titleAndVersionL.Text = "Open AutoClicker v" + VERSION_NUMBER.ToString("0.0");
+            titleAndVersionL.Text = "Open AutoClicker v" + VERSION_NUMBER;
         }
 
         void RegisterHotKeys()
