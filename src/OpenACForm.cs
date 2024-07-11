@@ -67,7 +67,10 @@ namespace OpenAC
 
             /* Click Options */
             clickOptionsMouseButtonCB.SelectedIndex = 0;
+            clickOptionsMouseButtonCB.DropDownStyle = ComboBoxStyle.DropDownList;
+
             clickOptionsClickTypeCB.SelectedIndex = 0;
+            clickOptionsClickTypeCB.DropDownStyle = ComboBoxStyle.DropDownList;
 
             /* Click Repeat */
             clickRepeatRepeatUntilStoppedRB.Checked = true;
@@ -76,6 +79,8 @@ namespace OpenAC
             /* Cursor Position */
             cursorPositionCurrentLocationRB.Checked = true;
             cursorPositionCustomLocationRB.Checked = false;
+            xLocationTB.Text = "0";
+            yLocationTB.Text = "0";
 
             /* Program State */
             startB.Enabled = true;
@@ -95,11 +100,6 @@ namespace OpenAC
             /* Registers the hotkeys for the Start and Stop buttons */
             RegisterHotKey(this.Handle, START_HOTKEY_ID, 0, (int)Keys.F6);
             RegisterHotKey(this.Handle, STOP_HOTKEY_ID, 0, (int)Keys.F7);
-        }
-
-        void AUtoClickerMainRuntime()
-        {
-
         }
 
         void DoAutoClickerThread(int delay, int n_repeats, bool repeat_until_stopped, string mouse_button, string click_type, int x, int y)    /* DoAutoClickerThread is the main function that handles the active state of the AutoClicker. It is a threaded process. */
@@ -275,6 +275,37 @@ namespace OpenAC
         private void clickRepeatRepeatUntilStoppedRB_CheckedChanged(object sender, EventArgs e)
         {
             clickRepeatRepeatNTimesNUD.Enabled = clickRepeatRepeatNTimesRB.Checked;
+        }
+
+        /* NULL TEXTBOXES SET TO 0 ON LEAVE */
+
+        private void clickIntervalHoursTB_Leave(object sender, EventArgs e)
+        {
+            if (clickIntervalHoursTB.Text == "") clickIntervalHoursTB.Text = "0";
+        }
+        private void clickIntervalMinutesTB_Leave(object sender, EventArgs e)
+        {
+            if (clickIntervalMinutesTB.Text == "") clickIntervalMinutesTB.Text = "0";
+        }
+        private void clickIntervalSecondsTB_Leave(object sender, EventArgs e)
+        {
+            if (clickIntervalSecondsTB.Text == "") clickIntervalSecondsTB.Text = "0";
+        }
+        private void clickIntervalMillisecondsTB_Leave(object sender, EventArgs e)
+        {
+            if (clickIntervalMillisecondsTB.Text == "") clickIntervalMillisecondsTB.Text = "0";
+        }
+        private void clickRepeatRepeatNTimesNUD_Leave(object sender, EventArgs e)
+        {
+            if (clickRepeatRepeatNTimesNUD.Text == "") clickRepeatRepeatNTimesNUD.Text = "0";
+        }
+        private void xLocationTB_Leave(object sender, EventArgs e)
+        {
+            if (xLocationTB.Text == "") xLocationTB.Text = "0";
+        }
+        private void yLocationTB_Leave(object sender, EventArgs e)
+        {
+            if (yLocationTB.Text == "") yLocationTB.Text = "0";
         }
 
         private void pickLocationB_Click(object sender, EventArgs e)
