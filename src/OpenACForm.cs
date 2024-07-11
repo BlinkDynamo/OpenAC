@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-
+using System.Drawing.Configuration;
 
 namespace OpenAC
 {
@@ -41,15 +41,8 @@ namespace OpenAC
         private const int DOUBLE_CLICK_DELAY    = 50;
         private const string VERSION_NUMBER     = "1.0.0";
 
-        /* RUNTIME VARIABLES */
-        int delay;  /* in milliseconds */
-        int n_repeats;
-        bool repeat_until_stopped;
-        int x;
-        int y;
-        string mouse_button;
-        string click_type;
-        bool is_running;
+        /* GLOBAL VARS */
+        private bool is_running = false;
 
         /* CONSTRUCTOR */
         public OpenACForm()
@@ -104,11 +97,16 @@ namespace OpenAC
             RegisterHotKey(this.Handle, STOP_HOTKEY_ID, 0, (int)Keys.F7);
         }
 
-        void DoAutoClicker()    /* DoAutoClicker is the main function that handles the active state of the AutoClicker. It is a threaded process. */
+        void AUtoClickerMainRuntime()
+        {
+
+        }
+
+        void DoAutoClickerThread(int delay, int n_repeats, bool repeat_until_stopped, string mouse_button, string click_type, int x, int y)    /* DoAutoClickerThread is the main function that handles the active state of the AutoClicker. It is a threaded process. */
         {
             while (is_running)  
             {
-                DoMouseClick(x, y);
+                DoMouseClick(x, y, mouse_button, click_type);
 
                 System.Threading.Thread.Sleep(delay);
 
@@ -130,8 +128,61 @@ namespace OpenAC
             }
         }
 
-        void getData()          /* Reads in data from all controls and stores them in variables for use during threaded runtime. Should only be called on START. */
+        void DoMouseClick(int location_x, int location_y, string mouse_button, string click_type)
         {
+            if (cursorPositionCustomLocationRB.Checked)
+            {
+                Cursor.Position = new System.Drawing.Point(location_x, location_y);    /* Move to the location */
+            }
+
+            /* Perform the click depending on the mouse button and click type */
+            if (mouse_button == "left")
+            {
+                if (click_type == "single")
+                {
+                    mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+                }
+                else
+                {
+                    mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+                    System.Threading.Thread.Sleep(DOUBLE_CLICK_DELAY);
+                    mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+                }
+            }
+            else
+            {
+                if (click_type == "single")
+                {
+                    mouse_event(MOUSEEVENTF_RIGHTDOWN | MOUSEEVENTF_RIGHTUP, 0, 0, 0, 0);
+                }
+                else
+                {
+                    mouse_event(MOUSEEVENTF_RIGHTDOWN | MOUSEEVENTF_RIGHTUP, 0, 0, 0, 0);
+                    System.Threading.Thread.Sleep(DOUBLE_CLICK_DELAY);
+                    mouse_event(MOUSEEVENTF_RIGHTDOWN | MOUSEEVENTF_RIGHTUP, 0, 0, 0, 0);
+                }
+            }
+        }       
+
+        /* ---------- EVENT HANDLERS ---------- */
+
+        private void startB_Click(object sender, EventArgs e)
+        {      
+            /* STATUS VARIABLES */
+            is_running = true;
+            startB.Enabled = false;
+            stopB.Enabled = true;
+
+            /* RUNTIME VARIABLES */
+            int delay;
+            int n_repeats;
+            bool repeat_until_stopped;
+            string mouse_button;
+            string click_type;
+            int x;
+            int y;
+
+            /* SET RUNTIME VARIABLES */
             /* Sums all clickInterval values to get the delay in milliseconds */
             delay = Convert.ToInt32(clickIntervalHoursTB.Text) * 3600000 +
                     Convert.ToInt32(clickIntervalMinutesTB.Text) * 60000 +
@@ -180,60 +231,14 @@ namespace OpenAC
                 x = Convert.ToInt32(xLocationTB.Text);
                 y = Convert.ToInt32(yLocationTB.Text);
             }
-        }
-
-        void DoMouseClick(int location_x, int location_y)
-        {
-            if (cursorPositionCustomLocationRB.Checked)
-            {
-                Cursor.Position = new System.Drawing.Point(location_x, location_y);    /* Move to the location */
-            }
-
-            /* Perform the click depending on the mouse button and click type */
-            if (mouse_button == "left")
-            {
-                if (click_type == "single")
-                {
-                    mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-                }
-                else
-                {
-                    mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-                    System.Threading.Thread.Sleep(DOUBLE_CLICK_DELAY);
-                    mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-                }
-            }
-            else
-            {
-                if (click_type == "single")
-                {
-                    mouse_event(MOUSEEVENTF_RIGHTDOWN | MOUSEEVENTF_RIGHTUP, 0, 0, 0, 0);
-                }
-                else
-                {
-                    mouse_event(MOUSEEVENTF_RIGHTDOWN | MOUSEEVENTF_RIGHTUP, 0, 0, 0, 0);
-                    System.Threading.Thread.Sleep(DOUBLE_CLICK_DELAY);
-                    mouse_event(MOUSEEVENTF_RIGHTDOWN | MOUSEEVENTF_RIGHTUP, 0, 0, 0, 0);
-                }
-            }
-        }       
-
-        /* ---------- EVENT HANDLERS ---------- */
-
-        private void startB_Click(object sender, EventArgs e)
-        {      
-            is_running = true;
-            startB.Enabled = false;
-            stopB.Enabled = true;
-
-            getData();
+            
 
             /* Start the AutoClicker thread */
-            Task.Run(() => DoAutoClicker());
+            Task.Run(() => DoAutoClickerThread(delay, n_repeats, repeat_until_stopped, mouse_button, click_type, x, y));
 
             /* Update status to show that AutoClicker is running */
             statusTB.Text = "Running";
-            statusTB.BackColor = Color.Green;
+            statusTB.BackColor = System.Drawing.ColorTranslator.FromHtml("#00e673");
         }
 
         private void stopB_Click(object sender, EventArgs e)
