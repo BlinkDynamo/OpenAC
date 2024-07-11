@@ -184,7 +184,10 @@ namespace OpenAC
 
         void DoMouseClick(int location_x, int location_y)
         {
-            Cursor.Position = new System.Drawing.Point(location_x, location_y);    /* Move to the location */
+            if (cursorPositionCustomLocationRB.Checked)
+            {
+                Cursor.Position = new System.Drawing.Point(location_x, location_y);    /* Move to the location */
+            }
 
             /* Perform the click depending on the mouse button and click type */
             if (mouse_button == "left")
