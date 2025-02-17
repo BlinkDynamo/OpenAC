@@ -2,7 +2,7 @@
 
 ## OpenAC AutoClicker v1.0
 
-OpenAC is an open source auto clicker inspired by [OPAutoClicker](https://www.opautoclicker.com/). This is a recoding using only images of the UI as inspiration.
+OpenAC is an open source auto clicker inspired by [OPAutoClicker](https://www.opautoclicker.com/).
 No code from [OPAutoClicker](https://www.opautoclicker.com/) was used in this project.
 
 ## About/Features
